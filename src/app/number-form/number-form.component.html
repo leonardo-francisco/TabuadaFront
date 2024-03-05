@@ -1,0 +1,36 @@
+<div class="form-container">
+  <form (submit)="submitNumbers()">
+    <div class="input-container">
+      <label for="numeros">Insira uma lista de números inteiros separados por vírgula:</label>
+      <input type="text" id="numeros" name="numeros" [(ngModel)]="numberList">
+    </div>
+    <div class="input-container">
+      <button type="submit">Enviar</button>
+    </div>
+  </form>
+
+  <!-- <ul *ngIf="results" class="results-list">
+    <li *ngFor="let result of results">{{ result }}</li>
+  </ul> -->
+
+  <div class="result-container">
+    <div *ngIf="results" class="results-container">
+      <ng-container *ngFor="let result of results">
+        <div class="result-item">
+          <div class="number-item">
+            <div class="number-square">{{ result[0] }}</div>
+          </div>
+          <div class="tabuada-item">
+            <ul class="tabuada-list">
+              <ng-container *ngFor="let line of result[1]">
+                <li>{{ line }}</li>
+              </ng-container>
+            </ul>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+</div>
+
